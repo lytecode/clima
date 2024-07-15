@@ -9,3 +9,38 @@
   display: grid;
   background: #6699CC;
 }
+
+.weather {
+  place-self: center;
+  padding: 40px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: linear-gradient(45deg, #2f4680, #2f69e5);
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.search-bar input {
+  height: 50px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  padding-left: 25px;
+  color: #2f69e5;
+  background-color: aliceblue;
+  font-size: 18px;
+}
+
+.search-icon {
+  width: 50px;
+  padding: 15px;
+  border-radius: 15%;
+  background-color: aliceblue;
+  cursor: pointer;
+}
