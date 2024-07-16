@@ -2,7 +2,7 @@ import { Search, Waves, Wind } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
 export default function Weather() {
-    const inputRef = useRef()
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const [weatherData, setWeatherData] = useState({
         location: '',
@@ -37,13 +37,22 @@ export default function Weather() {
 
     useEffect(() => {
         getData('toronto')
-    }, [])
+    }, []);
 
     return (
         <div className="weather">
             <div className="search-bar">
                 <input ref={inputRef} type="text" placeholder="Search" />
-                <Search size={50} color="blue" className="search-icon" onClick={() => getData(inputRef.current.value)} />
+                <Search
+                    size={50}
+                    color="blue"
+                    className="search-icon"
+                    onClick={() => {
+                        if (inputRef.current) {
+                            getData(inputRef.current.value);
+                        }
+                    }}
+                />
             </div>
             <img src={weatherData.icon} className="weather-icon" alt="weather icon" />
             <p className="temperature">{weatherData.temperature}°C</p>
